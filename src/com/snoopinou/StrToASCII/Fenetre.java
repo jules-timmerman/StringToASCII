@@ -115,9 +115,6 @@ public class Fenetre extends JFrame {
 			
 			String str = map.get(ascii);
 			
-			
-
-			
 			int beginIndex = 0;
 			int endIndex = 0;
 			for(int j = 0; j < getLineNumber(str); j++) { // Ligne dans l'ascii art
@@ -139,15 +136,11 @@ public class Fenetre extends JFrame {
 				
 			}
 		}
-		area.setText("");
 		for(String str : lines) {
 			art += str+"\n"; // on ajoute ligne par ligne en mettant un retour ligne
 		}
 
-		
 		return art;
-		
-		
 	}
 	
 	private int getLineNumber(String str) {
@@ -161,7 +154,6 @@ public class Fenetre extends JFrame {
 		}
 		
 		return nbre;
-		
 	}
 	
 	
