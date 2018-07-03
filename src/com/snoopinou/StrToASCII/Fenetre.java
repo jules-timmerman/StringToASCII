@@ -49,7 +49,9 @@ public class Fenetre extends JFrame {
 	
 	private void initMap() {
 		
-		for(int i = 0; i < 128; i++) {
+		LinkedList<Integer> empty = new LinkedList<Integer>();
+		
+		for(int i = 0; i < 4096; i++) {
 			URL url = this.getClass().getResource("/resources/"+i+".txt");
 			try {
 				BufferedInputStream input = new BufferedInputStream(url.openStream());
@@ -59,7 +61,13 @@ public class Fenetre extends JFrame {
 				
 			} catch (IOException | NullPointerException e) {
 				System.out.println("No existing "+i+".txt");
+				empty.add(i);
 			}
+		}
+		
+		String str = map.get(63);
+		for(int i : empty) {
+			map.put(i, str);
 		}
 	}
 	
