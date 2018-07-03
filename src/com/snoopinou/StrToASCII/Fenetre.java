@@ -31,6 +31,7 @@ public class Fenetre extends JFrame {
 	JTextArea area = new JTextArea();
 	JButton button = new JButton("OK");
 	JButton buttonCopy = new JButton("Copy to Clipboard");
+	JButton buttonMarkdown = new JButton("Copy for Markdown (Discord etc...)");
 	
 	Font font = new Font("Arial", Font.PLAIN, 16);
 	
@@ -100,10 +101,18 @@ public class Fenetre extends JFrame {
 			
 		});
 		
+		buttonMarkdown.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				Toolkit.getDefaultToolkit().getSystemClipboard().setContents(new StringSelection("```"+area.getText()+"```"), null);
+			}
+		});
+		
 		contentPane.add(jtf, "wrap, align center, spanx 2, grow, pushy 10");
 		
 		contentPane.add(button, "align center, pushx, wrap");
 		contentPane.add(buttonCopy, "align center, wrap, pushx");
+		contentPane.add(buttonMarkdown, "align center, pushx, wrap");
 		
 		contentPane.add(area, "wrap, grow, push, spanx 2");
 		this.setContentPane(contentPane);
